@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "title": "Drotek GCS v2",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "category": "Todo",
+      "id": 1
+    },
+    {
+      "title": "Update GCS V1",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
+      "category": "Work",
+      "id": 2
+    },
+    {
+      "title": "Work with MUI",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mauris justo, pulvinar in felis ac, lobortis imperdiet risus. Aenean mollis justo et sem iaculis tincidunt. Nulla facilisi. Maecenas in viverra massa. Phasellus vulputate leo turpis, at suscipit eros luctus vitae. Nullam aliquet ante nisl, a efficitur turpis pellentesque et. Nam luctus purus at enim lobortis sagittis. Donec ac leo quis dolor tempus convallis. Aenean porta imperdiet blandit. Maecenas quis malesuada felis. Pellentesque pulvinar, dolor sit amet porttitor dictum, mauris libero.",
+      "category": "Work",
+      "id": 4
+    }
+  ]
+}
