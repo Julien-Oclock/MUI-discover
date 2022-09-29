@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Grid, Paper } from '@material-ui/core'
+import React, { useEffect } from 'react'
+import { makeStyles, Container, Grid, Paper } from '@material-ui/core'
 
-import NoteCard from '../components/Notecard'
+import NoteCard from '../components/Notecard/Notecard.js'
+
+const useStyles = makeStyles({
+  container : {
+    marginLeft : '15vw',
+    maxWidth : '85vw'
+  }
+})
 
 export default function Notes() {
 
   const [notes, setNotes] = React.useState([])
+  const classes = useStyles()
 
   useEffect(() => {
-    fetch('http://localhost:8001/notes')
+    fetch('http://localhost:8000/notes')
       .then(res => res.json())
       .then(data => setNotes(data))
   }, [])
 
   const handleDelete = async (id) => {
-    await fetch('http://localhost:8001/notes/' + id, {
+    await fetch('http://localhost:8000/notes/' + id, {
       method:'DELETE'
     })
     const newNotes = notes.filter((note)=> note.id != id)
@@ -22,7 +30,7 @@ export default function Notes() {
   }
 
   return (
-    <Container>
+    <Container className={classes.container}>
       {/* Utilisation de 'grid' dans le cadre de la mise en page avec MUI
         <Grid container> // le grid avc l'attribut container permet de créer une grille (flexbox)
           <Grid item xs={12} md={3} sm={6}>// le grid avec l'attribut item permet de créer des éléments de la grille et on peut lui donner des attributs pour définir la taille de l'élément

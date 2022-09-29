@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import {
-    Container,
-    Grid,
-    Paper,
     Card,
     CardContent,
     CardHeader,
     IconButton,
-    Typography
+    Typography,
+    makeStyles,
 } from '@material-ui/core'
 import { DeleteOutlined } from '@material-ui/icons'
 
 
+const useStyles = makeStyles({
+    title : {
+        color : (note) => {
+            if(note.category == 'Work') return 'green'
+            if(note.category == 'Todo') return 'red'
+            if(note.category == 'Reminders')return '#3d5afe'
+        }
+    },
+    card : {
+        border : (note) => {
+            if(note.category == 'Work') return '1px solid green'
+            if(note.category == 'Todo') return '1px solid red'
+            if(note.category == 'Reminders')return '1px solid #3d5afe'
+        }
+    }
+})
+
 export default function NoteCard({ note, handleDelete}) {
 
-
+    const classes = useStyles(note)
     return (
-        <Card elevation={6}>
-            <CardHeader
+        <Card elevation={6} className={classes.card}>
+            <CardHeader 
+            className={classes.title}
                 action = {
                     <IconButton onClick={() => {
                         handleDelete(note.id)

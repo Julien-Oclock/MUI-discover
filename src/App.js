@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Notes from './pages/Notes'
-import Create from './pages/Create'
-import Layout from './components/Layout'
 import { createTheme, ThemeProvider } from '@material-ui/core'
 import { indigo, purple } from '@material-ui/core/colors';
+
+// import component
+import Notes from './pages/Notes'
+import Create from './pages/Create'
+import Layout from './components/Layout/Layout'
+import MyMap from './pages/Map/Map';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +36,9 @@ function App() {
             </Route>
             <Route path="/create">
               <Create />
+            </Route>
+            <Route path="/map">
+              <MyMap />
             </Route>
           </Switch>
         </Layout>

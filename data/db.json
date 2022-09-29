@@ -17,6 +17,24 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mauris justo, pulvinar in felis ac, lobortis imperdiet risus. Aenean mollis justo et sem iaculis tincidunt. Nulla facilisi. Maecenas in viverra massa. Phasellus vulputate leo turpis, at suscipit eros luctus vitae. Nullam aliquet ante nisl, a efficitur turpis pellentesque et. Nam luctus purus at enim lobortis sagittis. Donec ac leo quis dolor tempus convallis. Aenean porta imperdiet blandit. Maecenas quis malesuada felis. Pellentesque pulvinar, dolor sit amet porttitor dictum, mauris libero.",
       "category": "Work",
       "id": 4
+    },
+    {
+      "title": "MAPBOX ",
+      "details": "I have to integrate MapBox in this project. When it's done i have to diplay drone in the map using MQTT and Websocket protocol",
+      "category": "Todo",
+      "id": 5
+    },
+    {
+      "title": "TEST",
+      "details": "I'm a newbie here to React and I'm a little bit confused on how to override classes in Material UI. I took a look at the examples and tried to mimic it but it didn't seem to do what I want it to do.",
+      "category": "Reminders",
+      "id": 6
+    },
+    {
+      "title": "Graph ",
+      "details": "Création de graphique en utilisant de la data provenant des drones (faire une copie des graphiques de la V1 )",
+      "category": "Todo",
+      "id": 7
     }
   ]
 }

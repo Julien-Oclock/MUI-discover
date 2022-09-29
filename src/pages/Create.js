@@ -12,7 +12,6 @@ import {
   FormLabel,
   FormControl,
 } from '@material-ui/core'
-import { fontSize, width } from '@mui/system'
 import { useHistory } from 'react-router-dom'
 
 
@@ -26,6 +25,10 @@ const useStyles = makeStyles({
     marginTop: 20,
     marginBottom: 20,
     display: 'flex',
+  },
+  container : {
+    paddingLeft : '15vw',
+    width : '85vw'
   }
 })
 
@@ -48,7 +51,7 @@ export default function Create() {
     if (!details || details.length <= 2) { setDetailsError(true) }  
 
     if (title && details) {
-      fetch('http://localhost:8001/notes', {
+      fetch('http://localhost:8000/notes', {
         method: 'POST',
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ title, details, category })
@@ -58,7 +61,7 @@ export default function Create() {
 
 
   return (
-    <Container>
+    <Container className={classes.container}>
       <Typography
         variant='h6'
         color='textSecondary'
