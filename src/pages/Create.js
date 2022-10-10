@@ -21,6 +21,12 @@ const useStyles = makeStyles({
     marginBottom: 20,
     display: 'block',
   },
+  textInput : {
+    backgroundColor : 'white',
+    marginTop: 20,
+    marginBottom: 20,
+    display: 'block',
+  },
   button: {
     marginTop: 20,
     marginBottom: 20,
@@ -28,7 +34,8 @@ const useStyles = makeStyles({
   },
   container : {
     paddingLeft : '15vw',
-    width : '85vw'
+    width : '85vw',
+    height : '100vh'
   }
 })
 
@@ -51,7 +58,7 @@ export default function Create() {
     if (!details || details.length <= 2) { setDetailsError(true) }  
 
     if (title && details) {
-      fetch('http://localhost:8000/notes', {
+      fetch('http://localhost:8765/notes', {
         method: 'POST',
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ title, details, category })
@@ -78,7 +85,7 @@ export default function Create() {
       >
         <TextField
           onChange={(e) => setTitle(e.target.value)}
-          className={classes.field}
+          className={classes.textInput}
           label="Titre"
           variant='outlined'
           color='secondary'
@@ -87,6 +94,7 @@ export default function Create() {
           required
         />
         <TextField
+          className={classes.textInput}
           onChange={(e) => setDetails(e.target.value)}
           label="Details"
           variant='outlined'

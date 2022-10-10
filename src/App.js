@@ -7,6 +7,7 @@ import Notes from './pages/Notes'
 import Create from './pages/Create'
 import Layout from './components/Layout/Layout'
 import MyMap from './pages/Map/Map';
+import Websocket from './pages/Websocket/Websocket';
 
 const theme = createTheme({
   palette: {
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/map">
               <MyMap />
+            </Route>
+            <Route path="/ws">
+              <Websocket />
             </Route>
           </Switch>
         </Layout>

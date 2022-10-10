@@ -9,7 +9,7 @@ import {
     Divider,
     CardMedia
  } from '@material-ui/core';
-import { AddCircleOutlineOutlined, CenterFocusStrong, MapOutlined, SubjectOutlined,  } from '@material-ui/icons';
+import { Add, AddAlarmOutlined, AddCircleOutlineOutlined, AddIcCallOutlined, AddTwoTone, ApartmentRounded, CenterFocusStrong, LeakAddOutlined, LocalActivityRounded, MapOutlined, SubjectOutlined,  } from '@material-ui/icons';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => {
     }
 })
 
-function Layout({ children}) {
+function Layout({ children }) {
 
     const classes = useStyles()
     const history = useHistory()
@@ -80,6 +80,11 @@ function Layout({ children}) {
             text : 'Map View',
             icon : <MapOutlined color={ location.pathname == '/map' ? "primary" :"secondary"} />,
             path : '/map'
+        },
+        {
+            text : 'Websocket',
+            icon : <LocalActivityRounded color={ location.pathname == '/ws' ? "primary" :"secondary"} />,
+            path : '/ws'
         }
     ]
 

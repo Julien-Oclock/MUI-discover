@@ -1,0 +1,10 @@
+.buttons {
+    position: fixed;
+    top: 20px;
+    right: 100px;
+    z-index: 2;
+  }
+.map-container {
+    height: 100vh;
+  }
+  
