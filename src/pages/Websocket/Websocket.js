@@ -21,8 +21,9 @@ const Websocket = () => {
         ws.onmessage = (e) => {
             console.log(e)
             const droneStatusData = e.data
-            console.log(JSON.parse(droneStatusData))
-            setDroneStatus(droneStatusData)
+            const toto = JSON.parse(JSON.parse(droneStatusData))
+            console.log(toto[1])
+            setDroneStatus(toto)
         }
     })
 
@@ -31,15 +32,9 @@ const Websocket = () => {
             <h2>
                 WebSocket Example
             </h2>
-            {/* {
-                drone.map((drone, index) => {
-                    return (
-                        <div key={index}>
-                            <p>{drone}</p>
-                        </div>
-                    )
-                }
-                )} */}
+            {
+                console.log(droneStatus[1])
+            }
         </div>
     )
 }
