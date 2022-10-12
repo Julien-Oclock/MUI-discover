@@ -32,11 +32,10 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
           setCurrentDrone([])
           let foundedDrone= droneStatus.filter((drone) => drone.uuid === uuid)
           setCurrentDrone(foundedDrone)
-        }
-    
+        }    
       }
 
-      const classes = useStyles()
+    const classes = useStyles()
     return (
         <div className={classes.content}>
             <Map

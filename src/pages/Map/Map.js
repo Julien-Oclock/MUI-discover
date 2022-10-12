@@ -1,12 +1,9 @@
 import Map, { AttributionControl, GeolocateControl, NavigationControl, FullscreenControl, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import React, { useEffect, useState, Component } from "react";
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Button } from '@material-ui/core'
 
 
-//import components
-import MarkerCustom from '../../components/Marker/Marker';
-import MarkerPopup from "../../components/MarkerPopup/MarkerPopup";
 import Mapbox from "../../components/Map/mapbox";
 
 import './styles.css'
@@ -44,12 +41,13 @@ const MyMap = () => {
   const [droneStatus, setDroneStatus] = useState([])
   const [CurrentDrone, setCurrentDrone] = useState([])
   const [mapStyles, setMapSyles] = useState({})
-  const [currentMapStyle, setCurrentMapStyle] = useState(mapStyle.mapStyleLight)
+  const [currentMapStyle, setCurrentMapStyle] = useState('mapbox://styles/julien-drotek/cl7fx6a3d000i14p5fwk3te36')
   const [initialViewState, setInitialViewState] = useState({
     longitude: 1.74540,
     latitude: 43.39382,
     zoom: 15.5
   })
+
 
 
   useEffect(() => {
@@ -61,39 +59,31 @@ const MyMap = () => {
     }
   }, [droneStatus])
 
-  const handlePopup = (uuid) => {
-    console.log('coucou depuis map')
-    console.log(uuid)
-    if(uuid){
-      setCurrentDrone([])
-      let foundedDrone= droneStatus.filter((drone) => drone.uuid === uuid)
-      setCurrentDrone(foundedDrone)
-    }
-
-  }
 
   const classes = useStyles()
+
+  const handleMapStyle = () => {
+    if (currentMapStyle == 'mapbox://styles/julien-drotek/cl7fx6a3d000i14p5fwk3te36'){
+      setCurrentMapStyle('mapbox://styles/julien-drotek/cl6nm1vhw002k14nfpwncije7')
+    } else if (currentMapStyle == 'mapbox://styles/julien-drotek/cl6nm1vhw002k14nfpwncije7'){
+      setCurrentMapStyle('mapbox://styles/julien-drotek/cl763y4id003614o0inljfcrh')
+    } else {
+      setCurrentMapStyle('mapbox://styles/julien-drotek/cl7fx6a3d000i14p5fwk3te36')
+    }
+  }
 
   return (
     <div className={classes.content}>
       <Mapbox
-        mapStyle ="mapbox://styles/julien-drotek/cl7fx6a3d000i14p5fwk3te36"  
+        mapStyle ={currentMapStyle}  
         droneStatus = {droneStatus}   
       >
-        {droneStatus.map((drone) => {
-          console.log(drone)
-          return (
-            <MarkerCustom
-              key={drone.uuid}
-              latitude={(drone.lat / 10000000).toString()}
-              longitude={(drone.lon / 10000000).toString()}
-              handlePopup = {handlePopup}
-              uuid = {drone.uuid}
-            >
-            </MarkerCustom>
-          )
-        })}
       </Mapbox>
+      <div>
+        <Button onClick={() => {
+          handleMapStyle()
+        }}>Map style</Button>
+      </div>
   </div>
   );
 }
