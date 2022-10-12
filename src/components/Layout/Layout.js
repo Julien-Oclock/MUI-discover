@@ -9,7 +9,7 @@ import {
     Divider,
     CardMedia
  } from '@material-ui/core';
-import { Add, AddAlarmOutlined, AddCircleOutlineOutlined, AddIcCallOutlined, AddTwoTone, ApartmentRounded, CenterFocusStrong, LeakAddOutlined, LocalActivityRounded, MapOutlined, SubjectOutlined,  } from '@material-ui/icons';
+import { Add, AddAlarmOutlined, AddCircleOutlineOutlined, AddIcCallOutlined, AddTwoTone, ApartmentRounded, CenterFocusStrong, InsertChart, LeakAddOutlined, LocalActivityRounded, MapOutlined, SubjectOutlined,  } from '@material-ui/icons';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -82,9 +82,9 @@ function Layout({ children }) {
             path : '/map'
         },
         {
-            text : 'Websocket',
-            icon : <LocalActivityRounded color={ location.pathname == '/ws' ? "primary" :"secondary"} />,
-            path : '/ws'
+            text : 'Chart',
+            icon : <InsertChart color={ location.pathname == '/chart' ? "primary" :"secondary"} />,
+            path : '/chart'
         }
     ]
 

@@ -1,0 +1,7 @@
+.mixed-chart{
+    border: 1px solid balck !important;
+    margin: 30px;
+    padding: 15px !important;
+    display: flex;
+    justify-content: space-evenly;
+}
