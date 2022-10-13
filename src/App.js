@@ -9,6 +9,7 @@ import Layout from './components/Layout/Layout'
 import MyMap from './pages/Map/Map';
 import Websocket from './pages/Websocket/Websocket';
 import Chart from './pages/Chart/Chart'
+import HeatMap from './pages/HeatMap/HeatMap'
 
 const theme = createTheme({
   palette: {
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route path="/chart">
               <Chart />
+            </Route>
+            <Route path="/heat">
+              <HeatMap />
             </Route>
           </Switch>
         </Layout>

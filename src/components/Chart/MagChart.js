@@ -178,7 +178,7 @@ class MagChart extends React.Component {
                     <Chart
                         options={this.state.options}
                         series={this.state.series}
-                        type="bar"
+                        type="area"
                         width="500"
                         height="300"
                     />

@@ -9,9 +9,11 @@ import {
     Divider,
     CardMedia
  } from '@material-ui/core';
-import { Add, AddAlarmOutlined, AddCircleOutlineOutlined, AddIcCallOutlined, AddTwoTone, ApartmentRounded, CenterFocusStrong, InsertChart, LeakAddOutlined, LocalActivityRounded, MapOutlined, SubjectOutlined,  } from '@material-ui/icons';
+import { Add, AddAlarmOutlined, AddCircleOutlineOutlined,InsertChart, MapOutlined, MapRounded, SubjectOutlined,  } from '@material-ui/icons';
+import { alignProperty } from '@mui/material/styles/cssUtils';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+
 
 const drawerWidth = '15vw'
 
@@ -53,10 +55,14 @@ const useStyles = makeStyles((theme) => {
             divider : {
                 margin : '20px'
             },
+            bigDivider : {
+                margin: '20px',
+            },
             img : {
                 width: '100px',
                 margin: '0 auto'
-            }
+            },
+
     }
 })
 
@@ -85,6 +91,11 @@ function Layout({ children }) {
             text : 'Chart',
             icon : <InsertChart color={ location.pathname == '/chart' ? "primary" :"secondary"} />,
             path : '/chart'
+        },
+        {
+            text : 'Heatmap',
+            icon : <MapRounded color={ location.pathname == '/heat' ? "primary" :"secondary"} />,
+            path : '/heat'
         }
     ]
 
@@ -125,6 +136,7 @@ function Layout({ children }) {
             <div className={classes.page}>
                 { children }
             </div>
+
         </div>
 
     );

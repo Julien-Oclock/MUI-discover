@@ -7,6 +7,7 @@ import {
      ListItem,
      Button
 } from '@material-ui/core'
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles({
     container : {
@@ -63,7 +64,7 @@ const  MarkerPopup = ({drone}) => {
                     <ListItemText>time : <span className={classes.value}>{drone.time_usec}</span></ListItemText>
                 </ListItem>
                 <ListItem>
-                    <Button className={classes.button} variant="contained">Go to graph</Button>
+                    <Button component={RouterLink} to='/chart' className={classes.button} variant="contained">Go to graph</Button>
                 </ListItem>
             </List>
         </Paper>

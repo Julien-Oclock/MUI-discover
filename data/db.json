@@ -1,22 +1,10 @@
 {
   "notes": [
     {
-      "title": "MAPBOX ",
-      "details": "I have to integrate MapBox in this project. When it's done i have to diplay drone in the map using MQTT and Websocket protocol",
+      "title": "PRESENTATION Tech GCS V2",
+      "details": "Présenter les nouvelles techno choisis pour ce projet",
       "category": "Todo",
-      "id": 5
-    },
-    {
-      "title": "Graph ",
-      "details": "Création de graphique en utilisant de la data provenant des drones (faire une copie des graphiques de la V1 )",
-      "category": "Todo",
-      "id": 7
-    },
-    {
-      "title": "GRAPH",
-      "details": "Choisir une techno pour la gestion des graphiques de la V2\n",
-      "category": "Reminders",
-      "id": 9
+      "id": 1
     }
   ]
 }

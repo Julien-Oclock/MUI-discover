@@ -16,6 +16,11 @@ const useStyles = makeStyles({
     width: '85vw',
     height: '100vh',
     marginTop: '-20px'
+  },
+  buttonContainer : {
+    position : 'absolute',
+    left : '16vw',
+    top : '15px'
   }
 })
 
@@ -76,13 +81,16 @@ const MyMap = () => {
     <div className={classes.content}>
       <Mapbox
         mapStyle ={currentMapStyle}  
-        droneStatus = {droneStatus}   
+        droneStatus = {droneStatus}
+          
       >
       </Mapbox>
-      <div>
+      <div className={classes.buttonContainer}>
         <Button onClick={() => {
           handleMapStyle()
-        }}>Map style</Button>
+        }}
+        variant = 'contained'
+        >Map style</Button>
       </div>
   </div>
   );

@@ -5,15 +5,24 @@ import React, { useEffect, useState, Component } from "react";
 
 
 
+
 import MarkerCustom from "../Marker/Marker";
 import MarkerPopup from "../MarkerPopup/MarkerPopup";
+import SwitchBtn from '../../components/SwitchBtn/SwitchBtn'
 import './styles.css'
+
 
 
 const useStyles = makeStyles({
     content: {
       width: '100%',
       height: '100%',
+    },
+    switch : {
+        position : 'fixed',
+        bottom : '20px',
+        left : '20px',
+        zIndex : '9999999'
     }
   })
 
@@ -68,6 +77,7 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
                             key={drone.uuid}
                             latitude={(drone.lat / 10000000).toString()}
                             longitude={(drone.lon / 10000000).toString()}
+                            rotationValue = {drone.hdg}
                             handlePopup = {handlePopup}
                             uuid = {drone.uuid}
                             >
@@ -80,6 +90,7 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
                 ></MarkerPopup>
             }
         </div>
+
      );
 }
 
