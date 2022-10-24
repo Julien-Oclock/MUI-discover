@@ -29,14 +29,12 @@ const useStyles = makeStyles({
 
 const mapStyle = 'mapbox://styles/julien-drotek/cl74lev4i003a14nydihpt65z';
 
-const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74lev4i003a14nydihpt65z', droneStatus}) => {
+const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74lev4i003a14nydihpt65z', droneStatus, sendLightOn}) => {
 
 
     const [CurrentDrone, setCurrentDrone] = useState([])
 
     const handlePopup = (uuid) => {
-        console.log('coucou depuis map')
-        console.log(uuid)
         if(uuid){
           setCurrentDrone([])
           let foundedDrone= droneStatus.filter((drone) => drone.uuid === uuid)
@@ -49,11 +47,7 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
         <div className={classes.content}>
             <Map
                 mapboxAccessToken="pk.eyJ1IjoianVsaWVuLWRyb3RlayIsImEiOiJjbDZjNGlkMW4wMTFkM2JuMmVwb2RoYmw3In0.9BWa5Mz818kQyHwPsBUnVQ"
-                initialViewState ={
-                    {longitude: 1.74540,
-                    latitude: 43.39382,
-                    zoom: 15.5}
-                }
+                initialViewState ={initialViewState}
                 mapStyle={mapStyle}
                 keyboard={true}
                 trackResize={true}
@@ -71,7 +65,6 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
                 </NavigationControl>
                 <FullscreenControl />
                 {droneStatus.map((drone) => {
-                    console.log(drone)
                     return (
                         <MarkerCustom
                             key={drone.uuid}
@@ -87,6 +80,7 @@ const Mapbox = ({initialViewState, mapStyle='mapbox://styles/julien-drotek/cl74l
             { CurrentDrone.length > 0 &&
                 <MarkerPopup
                     drone = {CurrentDrone[0]}
+                    sendLightOn = {sendLightOn}
                 ></MarkerPopup>
             }
         </div>

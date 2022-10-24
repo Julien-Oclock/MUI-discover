@@ -33,10 +33,15 @@ const mapSateliteStyle = 'mapbox://styles/julien-drotek/cl763y4id003614o0inljfcr
 const mapStyle = 'mapbox://styles/julien-drotek/cl74lev4i003a14nydihpt65z';
 
 // Connect to the python websocket server
-const socketUrl = 'ws://localhost:8000/ws-drone'
-const ws = new WebSocket(socketUrl)
+const socketUrl = 'ws://localhost:8000'
+const ws = new WebSocket(socketUrl + '/ws-drone')
 ws.onopen = () => {
   console.log('connected')
+}
+
+const sendWS = new WebSocket(socketUrl + '/recv-data')
+sendWS.onopen = () => {
+  console.log('send is connected')
 }
 
 
@@ -44,8 +49,6 @@ const MyMap = () => {
 
   // set State for the map
   const [droneStatus, setDroneStatus] = useState([])
-  const [CurrentDrone, setCurrentDrone] = useState([])
-  const [mapStyles, setMapSyles] = useState({})
   const [currentMapStyle, setCurrentMapStyle] = useState('mapbox://styles/julien-drotek/cl7fx6a3d000i14p5fwk3te36')
   const [initialViewState, setInitialViewState] = useState({
     longitude: 1.74540,
@@ -63,6 +66,15 @@ const MyMap = () => {
       setDroneStatus(JsonDroneStatus)
     }
   }, [droneStatus])
+
+  const SendLightOn = (uuid) => {
+    console.log("send light ON command")
+    console.log(uuid) 
+    sendWS.send(JSON.stringify({
+      topic: 'colortest',
+      uuid : uuid
+    }))
+  }
 
 
   const classes = useStyles()
@@ -82,7 +94,8 @@ const MyMap = () => {
       <Mapbox
         mapStyle ={currentMapStyle}  
         droneStatus = {droneStatus}
-          
+        initialViewState = {initialViewState}
+        sendLightOn = {SendLightOn}    
       >
       </Mapbox>
       <div className={classes.buttonContainer}>

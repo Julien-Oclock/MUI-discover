@@ -18,16 +18,16 @@ const useStyles = makeStyles({
     },
     button : {
         backgroundColor : '#3d5afe',
-        color : 'white'
+        color : 'white',
+        margin : '10px'
     },
     value : {
         color : 'green'
     }
   })
 
-const  MarkerPopup = ({drone}) => {
+const  MarkerPopup = ({drone, sendLightOn}) => {
     const classes = useStyles()
-    console.log('render in popup', {drone})
     let DroneName = drone.uuid.substring(0,6).split().join('_')
     return (
         <Paper elevation={9} className={classes.container}>
@@ -64,6 +64,9 @@ const  MarkerPopup = ({drone}) => {
                     <ListItemText>time : <span className={classes.value}>{drone.time_usec}</span></ListItemText>
                 </ListItem>
                 <ListItem>
+                    <Button className={classes.button} variant="contained" onClick={() => {
+                        sendLightOn(drone.uuid)
+                    }}>Light on</Button>
                     <Button component={RouterLink} to='/chart' className={classes.button} variant="contained">Go to graph</Button>
                 </ListItem>
             </List>
